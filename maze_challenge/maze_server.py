@@ -1,6 +1,6 @@
 
 from maze_generator import MazeGenerator, MazeVisualizer
-from flask import Flask
+from flask import Flask, make_response
 from uuid import uuid4
 import json
 
@@ -30,11 +30,16 @@ class MazeServer:
         response['greeting'] = """Welcome to the maze. You may proceed to the entrance."""
         response['entrance'] = """/maze/%s"""%(entrance_id,)
 
-        return json.dumps(response, indent=4)
+        return self.json_response(response)
 
     def show_cell(self, cell_id):
         cell_info = self.get_cell_info(cell_id)
-        return json.dumps(cell_info, indent=4)
+        return self.json_response(cell_info)
+
+    def json_response(self, body):
+        response = make_response(json.dumps(body, indent=4))
+        response.headers["Content-Type"] = "application/json"
+        return response
 
     def get_cell_by_position(self, row, col):
         return self.maze[row][col]

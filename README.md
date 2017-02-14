@@ -13,3 +13,7 @@ Have fun!
 Bonus points for finding an automated solution, for visualizing the path, for visualizing the entire maze,
 for being the first to reach the exit, ...
 
+# TODO
+
+Add a 'claim your victory by posting a message to {{url}}'
+
