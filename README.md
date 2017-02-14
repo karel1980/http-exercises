@@ -4,7 +4,7 @@
 
 Start the maze server like this:
 
-	cd maze
+	cd maze_challenge
 	python server.py
 
 Visit http://localhost:5000 and try to find the exit.
